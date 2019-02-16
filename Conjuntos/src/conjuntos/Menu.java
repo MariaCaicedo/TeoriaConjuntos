@@ -34,6 +34,7 @@ public class Menu {
                 "77.Conjunto A\n" +
                 "99.Conjunto B\n" +
                 "";
+        String ingresado;
         int option;
         do {
             option = obtenerNumeroPorEntrada("MENU", menu);
@@ -102,15 +103,15 @@ public class Menu {
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
                         if (conjuntoA.igualdad(conjuntoB)) {
-                            JOptionPane.showMessageDialog(null, "los conjuntos son iguales", conjuntoA + " igual " + CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
+                            JOptionPane.showMessageDialog(null, "los conjuntos son iguales", CONJUNTO_A + " igual " + CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
                         } else {
-                            JOptionPane.showMessageDialog(null, "los conjuntos son diferentes", conjuntoA + " NO igual " + CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
+                            JOptionPane.showMessageDialog(null, "los conjuntos son diferentes", CONJUNTO_A + " NO igual " + CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
                         }
                     } else if (conjunto == 99) {
                         if (conjuntoB.igualdad(conjuntoA)) {
-                            JOptionPane.showMessageDialog(null, "los conjuntos son iguales", conjuntoB + " igual " + CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
+                            JOptionPane.showMessageDialog(null, "los conjuntos son iguales", CONJUNTO_B + " igual " + CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
                         } else {
-                            JOptionPane.showMessageDialog(null, "los conjuntos son diferentes", conjuntoB + " NO igual " + CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
+                            JOptionPane.showMessageDialog(null, "los conjuntos son diferentes", CONJUNTO_B + " NO igual " + CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
                         }
                     }
                     break;
@@ -124,7 +125,7 @@ public class Menu {
                     break;
                 case 9:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
-                    String ingresado = JOptionPane.showInputDialog(null, "Ingrese un character", "Ingrese un caracter", JOptionPane.DEFAULT_OPTION);
+                    ingresado = JOptionPane.showInputDialog(null, "Ingrese un character", "Ingrese un caracter", JOptionPane.DEFAULT_OPTION);
                     if (conjunto == 77) {
                         conjuntoA.agregar(ingresado.charAt(0));
                     } else if (conjunto == 99) {
@@ -133,10 +134,19 @@ public class Menu {
                     break;
                 case 10:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
+                    ingresado = JOptionPane.showInputDialog(null, "Ingrese un character", "Ingrese un caracter", JOptionPane.DEFAULT_OPTION);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        if (conjuntoA.borrar(ingresado.charAt(0))) {
+                            JOptionPane.showMessageDialog(null, String.format("el caracter %c fue borrado", ingresado.charAt(0)), CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
+                        } else {
+                            JOptionPane.showMessageDialog(null, String.format("el caracter %c No fue borrado", ingresado.charAt(0)), CONJUNTO_A, JOptionPane.ERROR_MESSAGE);
+                        }
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        if (conjuntoB.borrar(ingresado.charAt(0))) {
+                            JOptionPane.showMessageDialog(null, String.format("el caracter %c fue borrado", ingresado.charAt(0)), CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
+                        } else {
+                            JOptionPane.showMessageDialog(null, String.format("el caracter %c No fue borrado", ingresado.charAt(0)), CONJUNTO_B, JOptionPane.ERROR_MESSAGE);
+                        }
                     }
                     break;
                 case 11:
