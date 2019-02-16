@@ -39,8 +39,14 @@ ConjuntoLista {
 
     public ConjuntoLista union(ConjuntoLista conjuntoB) {
         ConjuntoLista nuevoConjunto = new ConjuntoLista();
-        nuevoConjunto.add(cabeza);
         nuevoConjunto.add(conjuntoB.getCabeza());
+        Nodo recorre = this.cabeza;
+        while (recorre!=null){
+            if(!nuevoConjunto.buscar(recorre.getDato())){
+                nuevoConjunto.agregar(recorre.getDato());
+            }
+            recorre=recorre.getLiga();
+        }
         return nuevoConjunto;
     }
 
