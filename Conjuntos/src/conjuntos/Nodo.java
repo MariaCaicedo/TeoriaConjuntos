@@ -1,8 +1,8 @@
 package conjuntos;
 
 public class Nodo {
-    char dato;
-    Nodo liga;
+    private char dato;
+    private Nodo liga;
 
     public char getDato() {
         return dato;
@@ -22,6 +22,6 @@ public class Nodo {
 
     public Nodo(char dato) {
         this.dato = dato;
-        this.liga=null;
+        this.liga = null;
     }
 }
