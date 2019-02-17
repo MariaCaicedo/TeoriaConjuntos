@@ -11,42 +11,44 @@ public class Menu {
 
     public static void main(String[] args) {
         String menu = "Conjuntos\n" +
-                "0.salir\n" +
-                "1.Cantidad de Elementos\n" +
-                "2.Pertenece\n" +
-                "3.Subconjunto\n" +
-                "4.Es Vacio\n" +
-                "5.Union\n" +
-                "6.Interseccion\n" +
-                "7.Igualdad\n" +
-                "8.Complemento\n" +
-                "9.Agregar un Elemento\n" +
-                "10.Borrar\n" +
-                "11.Posicion\n" +
-                "12.Diferencia\n" +
-                "13.Diferencia Simetrica\n" +
-                "14.Vaciar\n" +
+                "0.     Salir\n" +
+                "1.     Cantidad de Elementos\n" +
+                "2.     Pertenece\n" +
+                "3.     Subconjunto\n" +
+                "4.     Es Vacio\n" +
+                "5.     Union\n" +
+                "6.     Interseccion\n" +
+                "7.     Igualdad\n" +
+                "8.     Complemento\n" +
+                "9.     Agregar un Elemento\n" +
+                "10.    Borrar\n" +
+                "11.    Posicion\n" +
+                "12.    Diferencia\n" +
+                "13.    Diferencia Simetrica\n" +
+                "14.    Vaciar\n" +
                 "";
         ConjuntoLista conjuntoA = new ConjuntoLista();
         ConjuntoLista conjuntoB = new ConjuntoLista();
         ConjuntoLista respuesta = new ConjuntoLista();
         String conjuntoOpcion = "Seleccione un conjunto\n" +
-                "77.Conjunto A\n" +
-                "99.Conjunto B\n" +
+                "77.    Conjunto A\n" +
+                "99.    Conjunto B\n" +
                 "";
         String ingresado;
         int option;
         do {
             option = obtenerNumeroPorEntrada("MENU", menu);
             switch (option) {
+                case 0:
+                    break;
                 case 1:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
                         int elemnentos = conjuntoA.cantidadDeElementos();
-                        JOptionPane.showMessageDialog(null, String.format("El onjunto contiene &d&n elementos", elemnentos), CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
+                        JOptionPane.showMessageDialog(null, String.format("El conjunto contiene %d%n elementos", elemnentos), CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
                     } else if (conjunto == 99) {
                         int elemnentos = conjuntoB.cantidadDeElementos();
-                        JOptionPane.showMessageDialog(null, String.format("El onjunto contiene &d&n elementos", elemnentos), CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
+                        JOptionPane.showMessageDialog(null, String.format("El conjunto contiene %d%n elementos", elemnentos), CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
                     }
                     break;
                 case 2:
@@ -203,7 +205,7 @@ public class Menu {
                 if ("null".equals(e.getMessage())) {
                     return 0;
                 }
-                JOptionPane.showMessageDialog(null, "Debe ingresar un numero entero\n" + e.getMessage(), "Error", JOptionPane.ERROR);
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número entero\n" + e.getMessage(), "Error", JOptionPane.ERROR);
             }
         } while (true);
     }
