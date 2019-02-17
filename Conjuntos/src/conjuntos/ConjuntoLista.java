@@ -41,11 +41,11 @@ ConjuntoLista {
         ConjuntoLista nuevoConjunto = new ConjuntoLista();
         nuevoConjunto.add(conjuntoB.getCabeza());
         Nodo recorre = this.cabeza;
-        while (recorre!=null){
-            if(!nuevoConjunto.buscar(recorre.getDato())){
+        while (recorre != null) {
+            if (!nuevoConjunto.buscar(recorre.getDato())) {
                 nuevoConjunto.agregar(recorre.getDato());
             }
-            recorre=recorre.getLiga();
+            recorre = recorre.getLiga();
         }
         return nuevoConjunto;
     }
@@ -72,8 +72,15 @@ ConjuntoLista {
     }
 
     public ConjuntoLista interseccion(ConjuntoLista conjuntoB) {
-        ConjuntoLista cojuntoInterseccion = new ConjuntoLista();
-        return cojuntoInterseccion;
+        ConjuntoLista conjuntoInterseccion = new ConjuntoLista();
+        Nodo recorre = this.cabeza;
+        while (recorre != null) {
+            if(conjuntoB.buscar(recorre.getDato())) {
+               conjuntoInterseccion.agregar(recorre.getDato());
+            }
+            recorre = recorre.getLiga();
+        }
+        return conjuntoInterseccion;
     }
 
     public boolean igualdad(ConjuntoLista conjuntoB) {
@@ -134,7 +141,7 @@ ConjuntoLista {
                 anterior.setLiga(recorre.getLiga());
                 return true;
             }
-            anterior=recorre;
+            anterior = recorre;
             recorre = recorre.getLiga();
         }
         return false;
@@ -171,7 +178,7 @@ ConjuntoLista {
     public String toString() {
         String conjunto = "Elementos:\n";
         Nodo recorre = this.cabeza;
-        while (recorre != null){
+        while (recorre != null) {
             conjunto += recorre.getDato() + "\n";
         }
         return conjunto;

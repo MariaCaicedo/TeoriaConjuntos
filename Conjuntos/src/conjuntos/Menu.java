@@ -87,7 +87,7 @@ public class Menu {
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
                         respuesta = conjuntoA.union(conjuntoB);
-                        JOptionPane.showMessageDialog(null, respuesta.toString(), CONJUNTO_A + " unido " + CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
+                        showLongTextMessageInDialog(respuesta.toString());
                     } else if (conjunto == 99) {
                         respuesta = conjuntoB.union(conjuntoA);
                         showLongTextMessageInDialog(respuesta.toString());
@@ -96,9 +96,11 @@ public class Menu {
                 case 6:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        respuesta = conjuntoA.interseccion(conjuntoB);
+                        showLongTextMessageInDialog(respuesta.toString());
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        respuesta = conjuntoB.interseccion(conjuntoA);
+                        showLongTextMessageInDialog(respuesta.toString());
                     }
                     break;
                 case 7:
