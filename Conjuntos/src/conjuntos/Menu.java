@@ -45,10 +45,10 @@ public class Menu {
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
                         int elemnentos = conjuntoA.cantidadDeElementos();
-                        JOptionPane.showMessageDialog(null, String.format("El conjunto contiene %d%n elementos", elemnentos), CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
+                        JOptionPane.showMessageDialog(null, String.format("El conjunto contiene %d elementos", elemnentos), CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
                     } else if (conjunto == 99) {
                         int elemnentos = conjuntoB.cantidadDeElementos();
-                        JOptionPane.showMessageDialog(null, String.format("El conjunto contiene %d%n elementos", elemnentos), CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
+                        JOptionPane.showMessageDialog(null, String.format("El conjunto contiene %d elementos", elemnentos), CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
                     }
                     break;
                 case 2:
@@ -90,7 +90,7 @@ public class Menu {
                         JOptionPane.showMessageDialog(null, respuesta.toString(), CONJUNTO_A + " unido " + CONJUNTO_B, JOptionPane.DEFAULT_OPTION);
                     } else if (conjunto == 99) {
                         respuesta = conjuntoB.union(conjuntoA);
-                        JOptionPane.showMessageDialog(null, respuesta.toString(), CONJUNTO_B + " unido " + CONJUNTO_A, JOptionPane.DEFAULT_OPTION);
+                        showLongTextMessageInDialog(respuesta.toString());
                     }
                     break;
                 case 6:
@@ -208,5 +208,13 @@ public class Menu {
                 JOptionPane.showMessageDialog(null, "Debe ingresar un número entero\n" + e.getMessage(), "Error", JOptionPane.ERROR);
             }
         } while (true);
+    }
+
+    public static void showLongTextMessageInDialog(String longMessage) {
+        JTextArea textArea = new JTextArea(6, 25);
+        textArea.setText(longMessage);
+        textArea.setEditable(false);
+        JScrollPane scrollPane = new JScrollPane(textArea);
+        JOptionPane.showMessageDialog(null, scrollPane);
     }
 }
