@@ -164,9 +164,11 @@ public class Menu {
                 case 12:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        respuesta = conjuntoA.diferencia(conjuntoB);
+                        showLongTextMessageInDialog(respuesta.toString());
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        respuesta = conjuntoB.diferencia(conjuntoA);
+                        showLongTextMessageInDialog(respuesta.toString());
                     }
                     break;
                 case 13:

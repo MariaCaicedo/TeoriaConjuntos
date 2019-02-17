@@ -75,8 +75,8 @@ ConjuntoLista {
         ConjuntoLista conjuntoInterseccion = new ConjuntoLista();
         Nodo recorre = this.cabeza;
         while (recorre != null) {
-            if(conjuntoB.buscar(recorre.getDato())) {
-               conjuntoInterseccion.agregar(recorre.getDato());
+            if (conjuntoB.buscar(recorre.getDato())) {
+                conjuntoInterseccion.agregar(recorre.getDato());
             }
             recorre = recorre.getLiga();
         }
@@ -162,6 +162,12 @@ ConjuntoLista {
 
     public ConjuntoLista diferencia(ConjuntoLista conjuntoB) {
         ConjuntoLista conjuntoDiferencia = new ConjuntoLista();
+        Nodo recorre = this.cabeza;
+        while (recorre != null) {
+            if (!conjuntoB.buscar(recorre.getDato())) {
+                conjuntoDiferencia.agregar(recorre.getDato());
+            }
+        }
         return conjuntoDiferencia;
     }
 
