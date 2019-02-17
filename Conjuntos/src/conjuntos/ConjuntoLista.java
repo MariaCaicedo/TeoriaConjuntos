@@ -119,20 +119,23 @@ ConjuntoLista {
     }
 
     public boolean borrar(char caracter) {
-        if (this.cabeza != null && !buscar(caracter)) {
+        if (this.cabeza == null || !buscar(caracter)) {
+            System.out.println(String.format("El caracter [%c] no existe en el conjunto", caracter));
             return false;
         }
         if (this.cabeza.getDato() == caracter) {
             this.cabeza = this.cabeza.getLiga();
+            return true;
         }
-        Nodo recorre = this.cabeza;
-        while (recorre.getLiga() != null) {
-            Nodo anterior = recorre;
-            recorre = recorre.getLiga();
+        Nodo anterior = this.cabeza;
+        Nodo recorre = anterior.getLiga();
+        while (recorre != null) {
             if (recorre.getDato() == caracter) {
-                anterior = recorre.getLiga();
-                break;
+                anterior.setLiga(recorre.getLiga());
+                return true;
             }
+            anterior=recorre;
+            recorre = recorre.getLiga();
         }
         return false;
     }
