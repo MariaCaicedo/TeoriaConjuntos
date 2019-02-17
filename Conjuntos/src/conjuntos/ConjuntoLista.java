@@ -25,18 +25,18 @@ ConjuntoLista {
         return cantidadElementos;
     }
 
-    public boolean pertenece(ConjuntoLista conjuntoB) {
-        Nodo recorre = this.cabeza;
-        while (recorre!= null){
-            if(!conjuntoB.buscar(recorre.getDato())){
-                return false;
-            }
-        }
-        return this.cabeza!=null;
+    public boolean pertenece(char caracter) {
+        return buscar(caracter);
     }
 
     public boolean subconjunto(ConjuntoLista conjuntoB) {
-        return false;
+        Nodo recorre = this.cabeza;
+        while (recorre != null) {
+            if (!conjuntoB.buscar(recorre.getDato())) {
+                return false;
+            }
+        }
+        return this.cabeza != null;
     }
 
     public boolean esVacio() {

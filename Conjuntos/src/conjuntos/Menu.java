@@ -52,27 +52,36 @@ public class Menu {
                     }
                     break;
                 case 2:
+                    ingresado = JOptionPane.showInputDialog(null, "Ingrese un caracter", "Ingrese un caracter", JOptionPane.DEFAULT_OPTION);
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
-                        if (conjuntoA.pertenece(conjuntoB)) {
-                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_A + " pertenece al " + CONJUNTO_B, "Pertenece", JOptionPane.DEFAULT_OPTION);
+                        if (conjuntoA.pertenece(ingresado.charAt(0))) {
+                            JOptionPane.showMessageDialog(null, String.format("El caracter [%c] pertenece al " + CONJUNTO_A, ingresado.charAt(0)), "Pertenece", JOptionPane.DEFAULT_OPTION);
                         } else {
-                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_A + " No pertenece al " + CONJUNTO_B, "No Pertenece", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, String.format("El caracter [%c] No pertenece al " + CONJUNTO_A, ingresado.charAt(0)), "No Pertenece", JOptionPane.WARNING_MESSAGE);
                         }
                     } else if (conjunto == 99) {
-                        if (conjuntoB.pertenece(conjuntoA)) {
-                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_B + " pertenece al " + CONJUNTO_A, "Pertenece", JOptionPane.DEFAULT_OPTION);
+                        if (conjuntoA.pertenece(ingresado.charAt(0))) {
+                            JOptionPane.showMessageDialog(null, String.format("El caracter [%c] pertenece al " + CONJUNTO_B, ingresado.charAt(0)), "Pertenece", JOptionPane.DEFAULT_OPTION);
                         } else {
-                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_B + " No pertenece al " + CONJUNTO_A, "No Pertenece", JOptionPane.WARNING_MESSAGE);
+                            JOptionPane.showMessageDialog(null, String.format("El caracter [%c] No pertenece al " + CONJUNTO_B, ingresado.charAt(0)), "No Pertenece", JOptionPane.WARNING_MESSAGE);
                         }
                     }
                     break;
                 case 3:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        if (conjuntoA.subconjunto(conjuntoB)) {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_A + " es subconjunto del " + CONJUNTO_B, "Es subconjunto", JOptionPane.DEFAULT_OPTION);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_A + " No es subconjunto del " + CONJUNTO_B, "No es subconjunto", JOptionPane.WARNING_MESSAGE);
+                        }
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        if (conjuntoB.subconjunto(conjuntoA)) {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_B + " es subconjunto del " + CONJUNTO_A, "Es subconjunto", JOptionPane.DEFAULT_OPTION);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_B + " No es subconjunto del " + CONJUNTO_A, "No es subconjunto", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
                     break;
                 case 4:
@@ -163,10 +172,11 @@ public class Menu {
                     break;
                 case 11:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
+                    ingresado = JOptionPane.showInputDialog(null, "Ingrese un caracter", "Ingrese un caracter", JOptionPane.DEFAULT_OPTION);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        JOptionPane.showMessageDialog(null, String.format("La posición del caracter [%c] es %d", ingresado.charAt(0), conjuntoA.posicion(ingresado.charAt(0))), "Posición", JOptionPane.DEFAULT_OPTION);
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        JOptionPane.showMessageDialog(null, String.format("La posición del caracter [%c] es %d", ingresado.charAt(0), conjuntoB.posicion(ingresado.charAt(0))), "Posición", JOptionPane.DEFAULT_OPTION);
                     }
                     break;
                 case 12:
