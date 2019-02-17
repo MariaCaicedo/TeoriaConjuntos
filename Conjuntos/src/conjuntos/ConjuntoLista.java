@@ -34,7 +34,7 @@ ConjuntoLista {
     }
 
     public boolean esVacio() {
-        return cabeza != null;
+        return cabeza == null;
     }
 
     public ConjuntoLista union(ConjuntoLista conjuntoB) {
@@ -162,5 +162,15 @@ ConjuntoLista {
 
     public void vaciar() {
         cabeza = null;
+    }
+
+    @Override
+    public String toString() {
+        String conjunto = "Elementos:\n";
+        Nodo recorre = this.cabeza;
+        while (recorre != null){
+            conjunto += recorre.getDato() + "\n";
+        }
+        return conjunto;
     }
 }
