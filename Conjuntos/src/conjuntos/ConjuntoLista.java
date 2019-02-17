@@ -171,8 +171,20 @@ ConjuntoLista {
         return conjuntoDiferencia;
     }
 
-    public ConjuntoLista diferneciaAsimetrica(ConjuntoLista conjuntoB) {
+    public ConjuntoLista diferenciaAsimetrica(ConjuntoLista conjuntoB) {
         ConjuntoLista conjuntoDiferenciaAsimetrica = new ConjuntoLista();
+        Nodo recorre = this.cabeza;
+        while (recorre != null) {
+            if (!conjuntoB.buscar((recorre.getDato()))) {
+                conjuntoDiferenciaAsimetrica.agregar(recorre.getDato());
+            }
+        }
+        recorre = conjuntoB.getCabeza();
+        while (recorre != null) {
+            if (!buscar(recorre.getDato())) {
+                conjuntoDiferenciaAsimetrica.agregar(recorre.getDato());
+            }
+        }
         return conjuntoDiferenciaAsimetrica;
     }
 
