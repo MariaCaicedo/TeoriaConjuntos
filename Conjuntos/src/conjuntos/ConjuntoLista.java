@@ -26,7 +26,13 @@ ConjuntoLista {
     }
 
     public boolean pertenece(ConjuntoLista conjuntoB) {
-        return false;
+        Nodo recorre = this.cabeza;
+        while (recorre!= null){
+            if(!conjuntoB.buscar(recorre.getDato())){
+                return false;
+            }
+        }
+        return this.cabeza!=null;
     }
 
     public boolean subconjunto(ConjuntoLista conjuntoB) {

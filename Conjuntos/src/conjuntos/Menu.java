@@ -54,9 +54,17 @@ public class Menu {
                 case 2:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        if (conjuntoA.pertenece(conjuntoB)) {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_A + " pertenece al " + CONJUNTO_B, "Pertenece", JOptionPane.DEFAULT_OPTION);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_A + " No pertenece al " + CONJUNTO_B, "No Pertenece", JOptionPane.WARNING_MESSAGE);
+                        }
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        if (conjuntoB.pertenece(conjuntoA)) {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_B + " pertenece al " + CONJUNTO_A, "Pertenece", JOptionPane.DEFAULT_OPTION);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "El " + CONJUNTO_B + " No pertenece al " + CONJUNTO_A, "No Pertenece", JOptionPane.WARNING_MESSAGE);
+                        }
                     }
                     break;
                 case 3:
