@@ -1,11 +1,10 @@
 package conjuntos;
 
-import sun.text.resources.ja.CollationData_ja;
-
 public class
 
 ConjuntoLista {
     private Nodo cabeza;
+    private String conjuntoUniversal = "abcdefghijklmnñopqrstuvwxyz";
 
     public ConjuntoLista() {
         this.cabeza = null;
@@ -119,8 +118,13 @@ ConjuntoLista {
         return false;
     }
 
-    public ConjuntoLista complemento(ConjuntoLista conjuntoB) {
+    public ConjuntoLista complemento() {
         ConjuntoLista conjuntoComplemento = new ConjuntoLista();
+        for (int i = 0; i <= conjuntoUniversal.length(); i++) {
+            if (!buscar(conjuntoUniversal.charAt(i))) {
+                conjuntoComplemento.agregar(conjuntoUniversal.charAt(i));
+            }
+        }
         return conjuntoComplemento;
     }
 

@@ -139,9 +139,11 @@ public class Menu {
                 case 8:
                     conjunto = obtenerNumeroPorEntrada("Escoja un Conjunto", conjuntoOpcion);
                     if (conjunto == 77) {
-                        System.out.println("no implementado");
+                        respuesta = conjuntoA.complemento();
+                        showLongTextMessageInDialog(respuesta.toString());
                     } else if (conjunto == 99) {
-                        System.out.println("no implementado");
+                        respuesta = conjuntoB.complemento();
+                        showLongTextMessageInDialog(respuesta.toString());
                     }
                     break;
                 case 9:
