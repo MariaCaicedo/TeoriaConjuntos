@@ -119,7 +119,7 @@ ConjuntoLista {
 
     public ConjuntoLista complemento() {
         ConjuntoLista conjuntoComplemento = new ConjuntoLista();
-        for (int i = 0; i <= conjuntoUniversal.length(); i++) {
+        for (int i = 0; i < conjuntoUniversal.length(); i++) {
             if (!buscar(conjuntoUniversal.charAt(i))) {
                 conjuntoComplemento.agregar(conjuntoUniversal.charAt(i));
             }
@@ -128,8 +128,8 @@ ConjuntoLista {
     }
 
     public boolean agregar(char caracter) {
-        if (!buscar(caracter)) {
-            System.out.println(String.format("El caracter [%c] ya existe dentro del conjunto.",caracter9));
+        if (buscar(caracter)) {
+            System.out.println(String.format("El caracter [%c] ya existe dentro del conjunto.",caracter));
             return false;
         }
         Nodo nuevo = new Nodo(caracter);
@@ -166,6 +166,8 @@ ConjuntoLista {
         while (recorre != null) {
             if (recorre.getDato() != caracter) {
                 posicion++;
+
+            }else{
                 break;
             }
             recorre = recorre.getLiga();

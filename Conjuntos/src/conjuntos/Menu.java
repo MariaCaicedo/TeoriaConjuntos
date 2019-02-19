@@ -230,7 +230,7 @@ public class Menu {
                 if ("null".equals(e.getMessage())) {
                     return 0;
                 }
-                JOptionPane.showMessageDialog(null, "Debe ingresar un número entero\n" + e.getMessage(), "Error", JOptionPane.ERROR);
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número entero\n" + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
             }
         } while (true);
     }
