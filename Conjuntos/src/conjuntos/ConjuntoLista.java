@@ -129,7 +129,7 @@ ConjuntoLista {
 
     public boolean agregar(char caracter) {
         if (!buscar(caracter)) {
-            System.out.println(String.format("El caracter [%c] ya existe dentro del conjunto."));
+            System.out.println(String.format("El caracter [%c] ya existe dentro del conjunto.",caracter9));
             return false;
         }
         Nodo nuevo = new Nodo(caracter);
