@@ -34,6 +34,7 @@ ConjuntoLista {
             if (!conjuntoB.buscar(recorre.getDato())) {
                 return false;
             }
+            recorre = recorre.getLiga();
         }
         return this.cabeza != null;
     }
@@ -92,10 +93,8 @@ ConjuntoLista {
         if (this.cabeza == null || null == conjuntoB.getCabeza()) {
             return this.getCabeza() == conjuntoB.getCabeza();
         }
-        boolean flag = false;
         Nodo recorre = this.cabeza;
         while (recorre != null) {
-            Nodo recorreOtro = conjuntoB.getCabeza();
             boolean encontrado = conjuntoB.buscar(recorre.getDato());
             if (!encontrado) {
                 return false;
@@ -129,6 +128,10 @@ ConjuntoLista {
     }
 
     public boolean agregar(char caracter) {
+        if (!buscar(caracter)) {
+            System.out.println(String.format("El caracter [%c] ya existe dentro del conjunto."));
+            return false;
+        }
         Nodo nuevo = new Nodo(caracter);
         nuevo.setLiga(cabeza);
         cabeza = nuevo;
@@ -177,6 +180,7 @@ ConjuntoLista {
             if (!conjuntoB.buscar(recorre.getDato())) {
                 conjuntoDiferencia.agregar(recorre.getDato());
             }
+            recorre = recorre.getLiga();
         }
         return conjuntoDiferencia;
     }
@@ -188,12 +192,14 @@ ConjuntoLista {
             if (!conjuntoB.buscar((recorre.getDato()))) {
                 conjuntoDiferenciaAsimetrica.agregar(recorre.getDato());
             }
+            recorre = recorre.getLiga();
         }
         recorre = conjuntoB.getCabeza();
         while (recorre != null) {
             if (!buscar(recorre.getDato())) {
                 conjuntoDiferenciaAsimetrica.agregar(recorre.getDato());
             }
+            recorre = recorre.getLiga();
         }
         return conjuntoDiferenciaAsimetrica;
     }
@@ -208,6 +214,7 @@ ConjuntoLista {
         Nodo recorre = this.cabeza;
         while (recorre != null) {
             conjunto += recorre.getDato() + "\n";
+            recorre = recorre.getLiga();
         }
         return conjunto;
     }
